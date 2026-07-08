@@ -14,11 +14,11 @@ void PlayerObject::updateSlopeRotation(float dt)
 	float rotationDegrees = convertToClosestRotation(CC_RADIANS_TO_DEGREES(targetSlopeAngle));
 
 	// rename incorrect bindings
-	double lastPlatformerSlopeRotation = m_maybeChangedDirectionAngle;
+	double lastPlatformerSlopeAngle = m_maybeChangedDirectionAngle;
 	bool slopeForceRight = m_platformerMovingRight;
 	bool slopeForceLeft = m_platformerMovingLeft;
 
-	if (m_isPlatformer && lastPlatformerSlopeRotation > 80.0f && (slopeForceRight || slopeForceLeft)) {
+	if (m_isPlatformer && lastPlatformerSlopeAngle > 80.0f && (slopeForceRight || slopeForceLeft)) {
 		rotationDegrees = 0.0f;
 	}
 
