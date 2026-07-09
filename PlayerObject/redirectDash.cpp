@@ -5,7 +5,7 @@
 	Edit Special menu for teleport portals. In platformer mode,
 	enabling this setting will cause the angle of the player to
 	adapt to the second teleport portal's rotation if dashing into it,
-	as well as reversing the player's direction if needed
+	as well as reversing the player's direction if needed.
 	
 */
 void PlayerObject::redirectDash(float rotation)

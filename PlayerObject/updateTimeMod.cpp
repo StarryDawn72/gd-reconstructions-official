@@ -1,4 +1,4 @@
-#define GM GameManager::sharedState() // as seen in RobTop's streams
+#define GM GameManager::sharedState()
 
 /*
 	====== PLAYEROBJECT::UPDATETIMEMOD ======
@@ -11,8 +11,11 @@
 void PlayerObject::updateTimeMod(float speed, bool noEffects)
 {
 
-	bool hasPlayLayer = m_playEffects;
-    if (!m_maybeReducedEffects && hasPlayLayer && !noEffects && m_playerSpeed != speed) {
+	// rename incorrect community-guesses
+	bool isInPlayLayer = m_playEffects;
+	bool isRespawning = m_maybeReducedEffects;
+
+    if (!isRespawning && isInPlayLayer && !noEffects && m_playerSpeed != speed) {
         GM->playSpeedParticle(speed);
     }
 
