@@ -138,8 +138,8 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 		isNewJump = false;
 		float yVel = flipMod() * -15.0f;
 
-		if (!isFlying() && !m_isRobot && !m_isSpider) {
-			yVel *= 1.1f;
+		if (!isFlying()) {
+			if (!m_isRobot && m_isSpider) yVel *= 1.1f;
 		}
 		else {
 			yVel = flipMod() * -14.0f;
@@ -169,31 +169,29 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 
 		float scaleMod = (playerScale == 1.0f) ? 1.0f : 0.8f;
 		float finalYVelocity = m_yStart;
-		float mod = 1.0f;
 
 		if (ringObjectType == GameObjectType::GravityRing) {
-			mod = 0.8f;
+			finalYVelocity *= 0.8f;
 		}
 		else if (ringObjectType == GameObjectType::GreenRing) {
-			mod = 1.0f;
-			if (m_isShip) mod = 0.7f;
+			if (m_isShip) finalYVelocity *= 0.7f;
 		}
-		else if (ringObjectType == GameObjectType::PinkJumpRing) {
-			mod = 0.72f;
-			if (m_isShip) mod = 0.37f;
-			else if (m_isBird) mod = 0.42f;
-			else if (m_isBall) mod = 0.77f;
+		else if (ringObjectType == GameObjectType::PinkJumpRing) {	
+			if (m_isShip) finalYVelocity *= 0.37f;
+			else if (m_isBird) finalYVelocity *= 0.42f;
+			else if (m_isBall) finalYVelocity *= 0.77f;
+			else finalYVelocity *= 0.72f;
 		}
 		else if (ringObjectType == GameObjectType::RedJumpRing) {
-			mod = 1.38f;
-			if (m_isShip) mod = (playerScale == 1.0f) ? 1.0f : 1.4f;
-			else if (m_isBird) mod = (playerScale == 1.0f) ? 1.02f : 1.36f;
-			else if (m_isBall) mod = 1.34f;
-			else if (m_isRobot) mod = 1.28f;
-			else if (m_isSpider) mod = 1.34f;
+			if (m_isShip) finalYVelocity *= (playerScale == 1.0f) ? 1.0f : 1.4f;
+			else if (m_isBird) finalYVelocity *= (playerScale == 1.0f) ? 1.02f : 1.36f;
+			else if (m_isBall) finalYVelocity *= 1.34f;
+			else if (m_isRobot) finalYVelocity *= 1.28f;
+			else if (m_isSpider) finalYVelocity *= 1.34f;
+			else finalYVelocity *= 1.38f;
 		}
 		else if (m_isRobot) {
-			mod = 0.9f;
+			finalYVelocity *= 0.9f;
 		}
 
 		if (ringObjectType == GameObjectType::GreenRing) {
@@ -211,7 +209,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 			}
 		}
 
-		setYVelocity(flipMod() * mod * scaleMod, 0);
+		setYVelocity(flipMod() * finalYVelocity * scaleMod, 0);
 
 		if (m_isBall) runBallRotation2();
 		else runRotateAction(false, 0);
@@ -299,7 +297,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 
 			float startRadius = ringObjectType == GameObjectType::RedJumpRing ? 42.0f : 35.0f;
 			float endRadius = 5.0f, duration = 0.35f;
-			bool fadeIn = false, easeOut = false;
+			bool fadeIn = true, easeOut = true;
 
             CCCircleWave* circleEffect = CCCircleWave::create(startRadius, endRadius, duration, fadeIn, easeOut);
             circleEffect->m_color = effectColor;
