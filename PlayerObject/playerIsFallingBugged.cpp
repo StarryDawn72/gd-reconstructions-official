@@ -11,7 +11,7 @@ bool playerIsFallingBugged()
         return playerIsFalling(m_gravity * 2.0);
     }
 
-	bool isInDualMode = m_unkA99;
+	bool& isInDualMode = m_unkA99;
     double gravity = isInDualMode ? -m_gravity : m_gravity;
 	double threshold = gravity * 2.0;
 

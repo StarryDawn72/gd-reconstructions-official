@@ -1,7 +1,9 @@
-Some nasty variables I had to rename. Found through extensive runtime analysis and reverse-engineering
+Some nasty variables I had to rename, either because they were completely incorrect or I because found a more suitable name. Found through extensive runtime analysis and reverse-engineering.
 ---
 
 **PlayerObject**:
+- m_jumpBuffered -> holdingJump
+- m_stateJumpBuffered -> holdingJumpReleaseDelayed
 - m_isOnGround -> canJump
 - m_isOnGround2 -> onGround
 - m_maybeChangedDirectionAngle -> lastPlatformerSlopeAngle
@@ -17,3 +19,11 @@ Some nasty variables I had to rename. Found through extensive runtime analysis a
 - m_isAccelerating -> isVelocityUncapped
 - m_touchedGravityPortal -> touchedTeleportRing
 - m_maybeReducedEffects -> isRespawning
+- m_maybeSlopeForce -> slideBoostValue (from RobTop's stream)
+- m_stateRingJump -> isNewJump
+- m_stateRingJump2 -> canRingJump
+- m_vehicleSize -> playerScale
+
+
+**GameObject**
+- m_editorEnabled -> isInEditor

@@ -15,10 +15,10 @@ void PlayerObject::updateSlopeRotation(float dt)
 
 	// rename incorrect bindings
 	double lastPlatformerSlopeAngle = m_maybeChangedDirectionAngle;
-	bool slopeForceRight = m_platformerMovingRight;
 	bool slopeForceLeft = m_platformerMovingLeft;
+	bool slopeForceRight = m_platformerMovingRight;
 
-	if (m_isPlatformer && lastPlatformerSlopeAngle > 80.0f && (slopeForceRight || slopeForceLeft)) {
+	if (m_isPlatformer && lastPlatformerSlopeAngle > 80.0f && (slopeForceLeft || slopeForceRight)) {
 		rotationDegrees = 0.0f;
 	}
 

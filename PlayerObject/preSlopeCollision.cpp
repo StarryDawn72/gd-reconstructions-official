@@ -15,7 +15,7 @@
 */
 bool PlayerObject::preSlopeCollision(float dt, GameObject *object)
 {
-	auto lastSlopeID = m_collidingWithSlopeId;
+	int& lastSlopeID = m_collidingWithSlopeId;
     if (object->m_uniqueID == lastSlopeID) {
         return false;
     }
