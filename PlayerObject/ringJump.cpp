@@ -37,7 +37,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 	bool& isInEditor = m_editorEnabled;
 	float playerScale = m_vehicleSize;
 
-	if (activatedRingIDs.find(ringID) != activatedRingIDs.end())
+	if (activatedRingIDs.find(object->m_uniqueID) != activatedRingIDs.end())
 		return;
 
     bool ringHasNoEffects = object->m_hasNoEffects;
@@ -53,11 +53,11 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
         return;
     }
 
-    if ((m_touchedRing || !isJumpingRing) && (m_touchedCustomRing || ringObjectType != CustomRing)) {
+    if ((m_touchedRing || !isJumpingRing) && (m_touchedCustomRing || ringObjectType != GameObjectType::CustomRing)) {
         if (touchedTeleportRing)
             return;
 
-        if (ringObjectType != TeleportOrb)
+        if (ringObjectType != GameObjectType::TeleportOrb)
             return;
     }
 
@@ -69,14 +69,14 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
     activatedRingIDs.insert(ringUniqueID);
 
     if (m_gameLayer != NULL) {
-        gameEventTriggered(GJGameEvent::OrbActivated, 0, m_uniqueID);
-        GJGameEvent ringEvent = m_gameLayer->objectTypeToGameEvent(ringObjectType);
-		gameEventTriggered(ringEvent, 0, m_uniqueID);
+        gameEventTriggered((int)GJGameEvent::OrbActivated, 0);
+        GJGameEvent ringEvent = m_gameLayer->objectTypeToGameEvent((int)ringObjectType);
+		gameEventTriggered((int)ringEvent, 0);
     }
 
     if (ringObjectType == GameObjectType::CustomRing)
         m_touchedCustomRing = true;
-    else if (ringObjectType == TeleportOrb)
+    else if (ringObjectType == GameObjectType::TeleportOrb)
         m_touchedGravityPortal = true;
     else
         m_touchedRing = true;
@@ -93,7 +93,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
             isNewJump = false;
     }
     else if (ringObjectType == GameObjectType::TeleportOrb) {
-        m_gameLayer->teleportPlayer(object, this);
+        m_gameLayer->teleportPlayer((TeleportPortalObject*)object, this);
         isNewJump = false;
     }
     else if (ringObjectType == GameObjectType::SpiderOrb) {
@@ -111,9 +111,9 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
     }
     else if (ringObjectType == GameObjectType::DashRing) {
         if (m_gameLayer != NULL)
-			gameEventTriggered(GJGameEvent::DashOrb, 0, m_uniqueID);
+			gameEventTriggered((int)GJGameEvent::DashOrb, 0);
 
-		startDashing(object);
+		startDashing((DashRingObject*)object);
     }
 	else if (ringObjectType == GameObjectType::GravityDashRing) {
 		if (!isInPlayLayer) {
@@ -132,7 +132,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 		if (m_gameLayer != NULL)
 			m_gameLayer->gameEventTriggered(GJGameEvent::GravityDashOrb, 0, m_uniqueID);
 
-		startDashing(object);
+		startDashing((DashRingObject*)object);
 	}
 	else if (ringObjectType == GameObjectType::DropRing) {
 		isNewJump = false;
@@ -206,7 +206,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 					levelEditorLayer->flipGravity(this, !m_isUpsideDown, true);
 			}
 			else {
-				PL->flipGravity(!m_isUpsideDown, true)
+				PL->flipGravity(this, !m_isUpsideDown, true);
 				if (!ringHasNoEffects) PL->playGravityEffect(m_isUpsideDown);
 			}
 		}
@@ -280,11 +280,12 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 				case GameObjectType::GravityRing: effectColor = ccc3(0, 255, 255); break;          // cyan
 				case GameObjectType::GreenRing:
 				case GameObjectType::DashRing: effectColor = ccc3(0, 255, 0); break;               // green
-				case GameObjectType::DropRing:                                                       // light background color
+				case GameObjectType::DropRing: {                                                     // light background color
 					int lightBgIndex = 1007;
 					ccColor3B lightBgColor = PL->m_effectManager->activeColorForIndex(lightBgIndex);
 					effectColor = lightBgColor;
-					break;
+					break;					
+				}                                                    
 				case GameObjectType::RedJumpRing: effectColor = ccc3(255, 100, 0); break;          // orange
 				case GameObjectType::CustomRing:                                                     // color inherited from object
 					if (object->m_colorSprite != NULL)
