@@ -2,7 +2,7 @@
 	====== PLAYEROBJECT::CHECKSNAPJUMPTOOBJECT ======
 	
 	Runs every frame when the player is colliding with a solid
-	object. it determines if you're going off sync when climbing or
+	object. It determines if you're going off sync when climbing or
 	descending a specific set of staircases to nudge you back towards
 	the center of the block and prevent you from eventually falling off.
 	
