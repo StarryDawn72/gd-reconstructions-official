@@ -20,7 +20,7 @@ Some nasty variables I had to rename, either because they were completely incorr
 - m_touchedGravityPortal -> touchedTeleportRing
 - m_maybeReducedEffects -> isRespawning
 - m_maybeSlopeForce -> slideBoostValue (from RobTop's stream)
-- m_stateRingJump -> isNewJump
+- m_stateRingJump -> isJumpUnused
 - m_stateRingJump2 -> canRingJump
 - m_vehicleSize -> playerScale
 

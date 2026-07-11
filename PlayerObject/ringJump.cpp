@@ -27,7 +27,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 	bool holdingJumpReleaseDelayed = (bool)m_stateJumpBuffered;
 	bool& touchedTeleportRing = m_touchedGravityPortal;
 	bool& canDisableAutoJump = m_padRingRelated;
-	bool& isNewJump = m_stateRingJump;
+	bool& isJumpUnused = m_stateRingJump;
 	bool& isJumping = m_maybeIsBoosted;
 	bool& isVelocityUncapped = m_isAccelerating;
 	bool& onGround = m_isOnGround2;
@@ -90,11 +90,11 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
     if (ringObjectType == GameObjectType::CustomRing) {
 		m_gameLayer->activateCustomRing(object);
         if (m_enable22Changes)
-            isNewJump = false;
+            isJumpUnused = false;
     }
     else if (ringObjectType == GameObjectType::TeleportOrb) {
         m_gameLayer->teleportPlayer((TeleportPortalObject*)object, this);
-        isNewJump = false;
+        isJumpUnused = false;
     }
     else if (ringObjectType == GameObjectType::SpiderOrb) {
         if (!m_isSideways) {
@@ -135,7 +135,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 		startDashing((DashRingObject*)object);
 	}
 	else if (ringObjectType == GameObjectType::DropRing) {
-		isNewJump = false;
+		isJumpUnused = false;
 		float yVel = flipMod() * -15.0f;
 
 		if (!isFlying()) {
@@ -162,7 +162,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 	else {
 		// Yellow, pink, red, green, and blue rings are handled here.
 
-		isNewJump = false;
+		isJumpUnused = false;
 		isJumping = true;
 		onGround = false;
 		canJump = false;
