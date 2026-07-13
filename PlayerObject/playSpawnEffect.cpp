@@ -1,3 +1,4 @@
+#define GM GameManager::sharedState()
 /*
 	====== PLAYEROBJECT::PLAYSPAWNEFFECT ======
 	
