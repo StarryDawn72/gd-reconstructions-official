@@ -7,8 +7,11 @@
 */
 void PlayerObject::stopRotation(bool ground, int type)
 {
+	// rename incorrect binding
+	bool& ballRotationMultiplierActive = m_isBallRotating;
+
 	m_isRotating = false;
 	m_isBallRotating2 = false;
-	m_isBallRotating = false;
-	m_rotationSpeed = 0.0f;
+	ballRotationMultiplierActive = false;
+	m_rotationSpeed = 0;
 }
