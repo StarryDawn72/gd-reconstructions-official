@@ -12,7 +12,6 @@ void PlayerObject::boostPlayer(float yVelocity)
 	bool& onGround = m_isOnGround2;
 	bool& canJump = m_isOnGround;
 	bool& isVelocityUncapped = m_isAccelerating;
-	bool& ballRotationMultiplierActive = m_isBallRotating;
 	float& playerScale = m_vehicleSize;
     
     isJumping = true;
@@ -24,7 +23,7 @@ void PlayerObject::boostPlayer(float yVelocity)
     setYVelocity(yVelocity, 0);
 
     if (!m_isDashing) {
-        if (!isFlying() && !m_isBall && !m_isRobot && !m_isSpider) {
+        if (isInNormalMode()) { // Cube
 			stopRotation(false, 0);
 			float duration = (playerScale == 1.0f) ? (40.0f / 60.0f) : (52.0f / 60.0f);
 
