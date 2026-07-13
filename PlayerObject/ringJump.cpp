@@ -36,6 +36,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 	bool& isRespawning = m_maybeReducedEffects;
 	bool& isInEditor = m_editorEnabled;
 	float playerScale = m_vehicleSize;
+	bool& _2p2ChangesDisabled = m_enable22Changes;
 
 	if (activatedRingIDs.find(object->m_uniqueID) != activatedRingIDs.end())
 		return;
@@ -89,7 +90,7 @@ void PlayerObject::ringJump(RingObject *object, bool skipCheck)
 
     if (ringObjectType == GameObjectType::CustomRing) {
 		m_gameLayer->activateCustomRing(object);
-        if (m_enable22Changes)
+        if (_2p2ChangesDisabled)
             isJumpUnused = false;
     }
     else if (ringObjectType == GameObjectType::TeleportOrb) {

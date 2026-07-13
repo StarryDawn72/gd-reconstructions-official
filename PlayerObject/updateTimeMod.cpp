@@ -11,7 +11,7 @@
 void PlayerObject::updateTimeMod(float speed, bool noEffects)
 {
 
-	// rename incorrect community-guesses
+	// rename incorrect community guesses
 	bool isInPlayLayer = m_playEffects;
 	bool isRespawning = m_maybeReducedEffects;
 

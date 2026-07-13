@@ -15,8 +15,8 @@
 */
 bool PlayerObject::preSlopeCollision(float dt, GameObject *object)
 {
-	int& lastSlopeID = m_collidingWithSlopeId;
-    if (object->m_uniqueID == lastSlopeID) {
+
+    if (object->m_uniqueID == m_collidingWithSlopeId) {
         return false;
     }
 
@@ -24,8 +24,8 @@ bool PlayerObject::preSlopeCollision(float dt, GameObject *object)
     CCRect playerRect = getObjectRect();
 
 	bool collided = false;
-    float xPadding = 0.0f;
-    float yPadding = 0.0f;
+    float xPadding = 0;
+    float yPadding = 0;
 
     if (m_isPlatformer && (m_isOnSlope || m_wasOnSlope)) {
         yPadding = 5.0f;

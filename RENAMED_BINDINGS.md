@@ -9,7 +9,6 @@ Some nasty variables I had to rename, either because they were completely incorr
 - m_maybeChangedDirectionAngle -> lastPlatformerSlopeAngle
 - m_platformerMovingRight -> slopeForceRight
 - m_platformerMovingLeft -> slopeForceLeft
-- m_collidingWithSlopeId -> lastSlopeID
 - m_playEffects -> isInPlayLayer
 - m_unkA99 -> isInDualMode
 - m_ringJumpRelated -> ringJumpingThisTick
@@ -25,6 +24,7 @@ Some nasty variables I had to rename, either because they were completely incorr
 - m_vehicleSize -> playerScale
 - m_isBallRotating -> ballRotationMultiplierActive
 - m_rotateSpeed -> ballRotationMultiplier
+- m_enable22Changes -> m_2p2ChangesDisabled (inverted lol)
 
 **GameObject**
 - m_editorEnabled -> isInEditor

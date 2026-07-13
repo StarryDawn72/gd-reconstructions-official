@@ -5,7 +5,7 @@
 	riding a slope's edge. It makes the player smoothly
 	face the angle of the slope, or reset rotation entirely
 	if you're in platformer mode and are undergoing a force from
-	gravity on a slope greater than 80 degrees.
+	gravity on a slope greater than 80 degrees, presumably for the Robot.
 	
 */
 void PlayerObject::updateSlopeRotation(float dt)
