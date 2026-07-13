@@ -18,7 +18,9 @@ void PlayerObject::updateSlopeRotation(float dt)
 	bool& slopeForceLeft = m_platformerMovingLeft;
 	bool& slopeForceRight = m_platformerMovingRight;
 
-	if (m_isPlatformer && lastPlatformerSlopeAngle > 80.0f && (slopeForceLeft || slopeForceRight)) {
+	bool forcedByGravity = slopeForceLeft || slopeForceRight;
+
+	if (m_isPlatformer && lastPlatformerSlopeAngle > 80.0f && forcedByGravity) {
 		rotationDegrees = 0.0f;
 	}
 
