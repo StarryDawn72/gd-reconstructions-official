@@ -15,7 +15,7 @@ Welcome to the Open Source Geometry Dash Project. This is (hopefully) what I pla
 **What makes my recontructions stand out from others**
 - I rename incorrect or imprecise variables from bindings
 - I manually verify every function with minimal use of AI
-- I override the original and test my reconstruction in-game for proof
+- I override the original and test my reconstruction in-game as proof
 - I recover the original intent behind the implementation
 - I provide a detailed description of at the top of every function
 - I don't post a bunch of slop
@@ -29,8 +29,9 @@ If you are in need of a function's code, or want to simply request an addition, 
 ### **Number of entries per class**
 """
 
-SCRIPT_DIR = Path(__file__).resolve().parent
-README_PATH = SCRIPT_DIR / "README.md"
+ROOT_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = ROOT_DIR / "src"
+README_PATH = ROOT_DIR / "README.md"
 
 def get_entry_string(directory):
     directory = Path(directory)
