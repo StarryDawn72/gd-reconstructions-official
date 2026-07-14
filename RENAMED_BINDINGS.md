@@ -25,6 +25,8 @@ Some nasty variables I had to rename, either because they were completely incorr
 - m_isBallRotating -> ballRotationMultiplierActive
 - m_rotateSpeed -> ballRotationMultiplier
 - m_enable22Changes -> m_2p2ChangesDisabled (inverted lol)
+- m_maybeCanRunIntoBlocks -> ignoreDamagePlayLayer
+- m_ignoreDamage -> ignoreDamageEditor
 
 **GameObject**
 - m_editorEnabled -> isInEditor
