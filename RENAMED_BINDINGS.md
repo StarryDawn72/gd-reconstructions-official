@@ -39,6 +39,8 @@ Some nasty variables I had to rename, either because they were completely incorr
 - m_maybeSlidingTime -> m_slopeSlideTimer
 - m_maybeUpsideDownSlope -> m_hitSlopeTop
 - m_slopeSlidingMaybeRotated -> m_isSlopeUphillRelative
+- m_lastActivatedPortal -> m_lastEffectObject
+- m_lastPortalPos -> m_lastEffectObjectPos
 
 **GameObject**
 - m_editorEnabled -> m_isInEditor

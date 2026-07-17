@@ -70,7 +70,7 @@ If you are in need of a function's code, or want to simply request an addition, 
 	</ul>
 </details>
 <details>
-	<summary>[ <b>PlayerObject</b> ] (31)</summary>
+	<summary>[ <b>PlayerObject</b> ] (32)</summary>
 	<ul>
 		<li><a href="./src/PlayerObject/addToYVelocity.cpp">addToYVelocity</a></li>
 		<li><a href="./src/PlayerObject/boostPlayer.cpp">boostPlayer</a></li>
@@ -86,6 +86,7 @@ If you are in need of a function's code, or want to simply request an addition, 
 		<li><a href="./src/PlayerObject/levelFlipping.cpp">levelFlipping</a></li>
 		<li><a href="./src/PlayerObject/levelWillFlip.cpp">levelWillFlip</a></li>
 		<li><a href="./src/PlayerObject/limitDashRotation.cpp">limitDashRotation</a></li>
+		<li><a href="./src/PlayerObject/playBumpEffect.cpp">playBumpEffect</a></li>
 		<li><a href="./src/PlayerObject/playerIsFalling.cpp">playerIsFalling</a></li>
 		<li><a href="./src/PlayerObject/playerIsFallingBugged.cpp">playerIsFallingBugged</a></li>
 		<li><a href="./src/PlayerObject/playSpawnEffect.cpp">playSpawnEffect</a></li>
