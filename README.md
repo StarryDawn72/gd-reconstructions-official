@@ -66,7 +66,7 @@ If you are in need of a function's code, or want to simply request an addition, 
 <details>
 	<summary>[ <b>EditorUI</b> ] (1)</summary>
 	<ul>
-		<li><a href="./src/EditorUI/deleteObject.cpp">deleteObject</a></li>
+		<li><a href="./src/EditorUI/deselectObject.cpp">deselectObject</a></li>
 	</ul>
 </details>
 <details>
