@@ -64,6 +64,12 @@ If you are in need of a function's code, or want to simply request an addition, 
 	</ul>
 </details>
 <details>
+	<summary>[ <b>EditorUI</b> ] (1)</summary>
+	<ul>
+		<li><a href="./src/EditorUI/deleteObject.cpp">deleteObject</a></li>
+	</ul>
+</details>
+<details>
 	<summary>[ <b>GameObject</b> ] (2)</summary>
 	<ul>
 		<li><a href="./src/GameObject/createAndAddParticle.cpp">createAndAddParticle</a></li>
