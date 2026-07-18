@@ -64,9 +64,16 @@ If you are in need of a function's code, or want to simply request an addition, 
 	</ul>
 </details>
 <details>
-	<summary>[ <b>GameObject</b> ] (1)</summary>
+	<summary>[ <b>GameObject</b> ] (2)</summary>
 	<ul>
+		<li><a href="./src/GameObject/createAndAddParticle.cpp">createAndAddParticle</a></li>
 		<li><a href="./src/GameObject/slopeYPos.cpp">slopeYPos</a></li>
+	</ul>
+</details>
+<details>
+	<summary>[ <b>LevelEditorLayer</b> ] (1)</summary>
+	<ul>
+		<li><a href="./src/LevelEditorLayer/addObjectFromVector.cpp">addObjectFromVector</a></li>
 	</ul>
 </details>
 <details>
