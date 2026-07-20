@@ -1,7 +1,7 @@
 /*
 	====== PlayerObject::addToYVelocity ======
 
-	A simple helper to incremen/decrement the Y velocity by
+	A simple helper to increment/decrement the Y velocity by
 	an amount. The parameter gets fed into setYVelocity
 	which does rounding as usual.
 	

@@ -127,6 +127,12 @@ If you are in need of a function's code, or want to simply request an addition, 
 	</ul>
 </details>
 <details>
+	<summary>[ <b>RingObject</b> ] (1)</summary>
+	<ul>
+		<li><a href="./src/RingObject/spawnCircle.cpp">spawnCircle</a></li>
+	</ul>
+</details>
+<details>
 	<summary>[ <b>Other</b> ] (1)</summary>
 	<ul>
 		<li><a href="./src/FreeFunctions.cpp">Free Functions</a></li>
